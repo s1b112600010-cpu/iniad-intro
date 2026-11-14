@@ -1,145 +1,344 @@
+
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>INIADの紹介</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --navy: #102a43;
-        --blue: #176b87;
-        --mint: #d9f0e9;
-        --ink: #243b53;
-        --muted: #526579;
-        --paper: #ffffff;
-        --background: #f2f7f8;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INIAD | 東洋大学 情報連携学部</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+      color: #243b53;
+      background: #f4f7fb;
+      line-height: 1.8;
+    }
+
+    /* Navigation */
+    header {
+      background: #102a43;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #5eead4;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 430px;
+      padding: 100px 8%;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        radial-gradient(circle at 85% 30%, #2685a5 0, transparent 35%),
+        linear-gradient(120deg, #102a43, #176b87);
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero-label {
+      color: #5eead4;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin: 15px 0;
+      line-height: 1.3;
+    }
+
+    .hero p {
+      color: #d9eaf2;
+      font-size: 1.05rem;
+      max-width: 600px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 12px 28px;
+      color: #102a43;
+      background: #5eead4;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      background: white;
+      transform: translateY(-3px);
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1100px;
+      margin: 70px auto;
+      padding: 0 25px;
+    }
+
+    section {
+      margin-bottom: 75px;
+    }
+
+    .section-label {
+      color: #176b87;
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    h2 {
+      color: #102a43;
+      font-size: 2rem;
+      margin: 5px 0 25px;
+    }
+
+    /* Overview */
+    .overview {
+      padding: 35px;
+      background: white;
+      border-radius: 16px;
+      border-left: 5px solid #176b87;
+      box-shadow: 0 8px 30px rgba(16, 42, 67, 0.06);
+    }
+
+    .overview p {
+      color: #526579;
+      font-size: 1rem;
+    }
+
+    /* Subject Cards */
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .subject-card {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 14px;
+      border: 1px solid #e5edf3;
+      box-shadow: 0 5px 20px rgba(16, 42, 67, 0.04);
+      transition: 0.3s ease;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 28px rgba(16, 42, 67, 0.12);
+      border-color: #176b87;
+    }
+
+    .subject-number {
+      display: block;
+      color: #176b87;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .subject-card h3 {
+      color: #102a43;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      color: #d9eaf2;
+      background: #102a43;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 800px) {
+      .subjects {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      * { box-sizing: border-box; }
-
-      body {
-        margin: 0;
-        padding: 48px 20px;
-        color: var(--ink);
-        background: linear-gradient(145deg, #e8f4f3 0%, var(--background) 48%, #edf2fa 100%);
-        font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-        line-height: 1.9;
+      header {
+        padding: 18px 5%;
       }
 
-      main {
-        width: min(100%, 840px);
-        margin: 0 auto;
-        padding: clamp(28px, 6vw, 64px);
-        background: var(--paper);
-        border: 1px solid rgba(16, 42, 67, 0.06);
-        border-radius: 20px;
-        box-shadow: 0 18px 50px rgba(16, 42, 67, 0.1);
+      nav a {
+        margin-left: 12px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
       }
 
-      h1 {
-        margin: 0 0 40px;
-        padding: 0 0 22px;
-        color: var(--navy);
-        border-bottom: 3px solid var(--mint);
-        font-size: clamp(2rem, 5vw, 2.8rem);
-        letter-spacing: 0.06em;
-        line-height: 1.35;
+      nav a {
+        margin: 0 8px;
+        font-size: 0.8rem;
       }
 
-      h1::before {
-        display: block;
-        margin-bottom: 12px;
-        color: var(--blue);
-        content: "TOYO UNIVERSITY · INFORMATION NETWORKING";
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.16em;
+      .hero {
+        padding: 75px 7%;
+      }
+
+      .subjects {
+        grid-template-columns: 1fr;
+      }
+
+      .overview {
+        padding: 25px;
       }
 
       h2 {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin: 36px 0 14px;
-        color: var(--navy);
-        font-size: 1.35rem;
+        font-size: 1.6rem;
       }
+    }
+  </style>
+</head>
 
-      h2::before {
-        width: 5px;
-        height: 1.35em;
-        border-radius: 5px;
-        background: var(--blue);
-        content: "";
-      }
+<body>
 
-      p { margin: 0; color: var(--muted); }
+  <!-- Navigation -->
+  <header>
+    <div class="logo">INIAD.</div>
 
-      ul {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-        gap: 12px;
-        margin: 20px 0 0;
-        padding: 0;
-        list-style: none;
-      }
+    <nav>
+      <a href="#overview">概要</a>
+      <a href="#subjects">科目群一覧</a>
+    </nav>
+  </header>
 
-      li {
-        position: relative;
-        padding: 14px 16px 14px 42px;
-        color: var(--navy);
-        background: #f3f8f8;
-        border: 1px solid #e3eeee;
-        border-radius: 10px;
-        font-weight: 600;
-        transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
-      }
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-label">TOYO UNIVERSITY</span>
 
-      li::before {
-        position: absolute;
-        left: 17px;
-        color: var(--blue);
-        content: "✦";
-      }
-
-      li:hover {
-        transform: translateY(-2px);
-        background: var(--mint);
-        box-shadow: 0 6px 16px rgba(16, 42, 67, 0.08);
-      }
-
-      @media (max-width: 520px) {
-        body { padding: 20px 12px; }
-        main { padding: 28px 22px; border-radius: 14px; }
-        h1 { margin-bottom: 30px; }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
-      }
-    </style>
-  </head>
-  <body>
-    <main>
       <h1>INIADの紹介</h1>
-      <section aria-labelledby="overview">
-        <h2 id="overview">概要</h2>
-        <p>INIADでは入学直後から、世界中で使われているプログラミング言語「Python」を学びます。さらに、ソースプログラム管理システム「Git」を用いた開発や、情報通信技術に関する幅広い知識を身につけます。実践的な学びを通じて、これからの社会を支える人材を育成します。</p>
-      </section>
-      <section aria-labelledby="curriculum">
-        <h2 id="curriculum">科目群一覧</h2>
-        <ul>
-          <li>コンピュータ・システム</li>
-          <li>コンピュータ・ソフトウェア</li>
-          <li>ユーザ・エクスペリエンス</li>
-          <li>データサイエンス</li>
-          <li>ICT社会応用</li>
-          <li>連携科目群</li>
-          <li>ビジネス構築</li>
-          <li>コミュニティ形成</li>
-        </ul>
-      </section>
-    </main>
-  </body>
+
+      <p>
+        情報と技術の力で、新しい未来を創造する。
+        プログラミングやICTを通じて、
+        これからの社会を支える人材を育成します。
+      </p>
+
+      <a href="#overview" class="hero-button">
+        詳しく見る ↓
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Overview -->
+    <section id="overview">
+      <span class="section-label">ABOUT INIAD</span>
+      <h2>概要</h2>
+
+      <div class="overview">
+        <p>
+          INIADでは入学直後から、世界中で使われている
+          プログラミング言語「Python」を学びます。
+          さらに、ソースプログラム管理システム「Git」を
+          用いた開発や、情報通信技術に関する幅広い知識を
+          身につけます。実践的な学びを通じて、
+          これからの社会を支える人材を育成します。
+        </p>
+      </div>
+    </section>
+
+    <!-- Subject List -->
+    <section id="subjects">
+      <span class="section-label">CURRICULUM</span>
+      <h2>科目群一覧</h2>
+
+      <div class="subjects">
+
+        <div class="subject-card">
+          <span class="subject-number">01 / SYSTEM</span>
+          <h3>コンピュータ・システム</h3>
+        </div>
+
+        <div class="subject-card">
+          <span class="subject-number">02 / SOFTWARE</span>
+          <h3>コンピュータ・ソフトウェア</h3>
+        </div>
+
+        <div class="subject-card">
+          <span class="subject-number">03 / DESIGN</span>
+          <h3>ユーザ・エクスペリエンス</h3>
+        </div>
+
+        <div class="subject-card">
+          <span class="subject-number">04 / DATA</span>
+          <h3>データサイエンス</h3>
+        </div>
+
+        <div class="subject-card">
+          <span class="subject-number">05 / ICT</span>
+          <h3>ICT社会応用</h3>
+        </div>
+
+        <div class="subject-card">
+          <span class="subject-number">06 / NETWORK</span>
+          <h3>連携科目群</h3>
+        </div>
+
+        <div class="subject-card">
+          <span class="subject-number">07 / BUSINESS</span>
+          <h3>ビジネス構築</h3>
+        </div>
+
+        <div class="subject-card">
+          <span class="subject-number">08 / COMMUNITY</span>
+          <h3>コミュニティ形成</h3>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 INIAD | TOYO UNIVERSITY</p>
+  </footer>
+
+</body>
 </html>
